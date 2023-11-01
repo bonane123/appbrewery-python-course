@@ -1,25 +1,4 @@
-# ESPRESSO
-# 50ml
-# 18g coffee
-# $1.50
 
-# LATTE
-# 200ml
-# 24g coffee
-# 150ml milk
-# $2.50
-
-# CAPPUCCINO
-# 250ml
-# 24g coffee
-# 1O0ml milk
-# $3.00
-
-# 1. Print report
-# 2. Check resource sufficient?
-# 3. Process coins
-# 4. Check transaction successful
-# 5. Make a coffe
 MENU = {
     "espresso": {
         "ingredients": {
@@ -92,10 +71,12 @@ def make_coffee(drink_name, order_ingredients):
         resources[item] -= order_ingredients[item]
     print(f"Here is your {drink_name} ☕.")
 
+
 is_on = True
 
 while is_on:
-    choice = input('What would you like? (espresso, latte, cappuccino): ').lower()
+    choice = input(
+        'What would you like? (espresso, latte, cappuccino): ').lower()
     if choice == 'off':
         is_on = False
     elif choice == 'report':
@@ -109,4 +90,3 @@ while is_on:
             payment = process_coins()
             if is_transaction_successful(payment, drink['cost']):
                 make_coffee(choice, drink['ingredients'])
-
